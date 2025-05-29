@@ -65,7 +65,7 @@ const Hero = () => {
               {/* Rectangular Photo */}
               <div className="relative z-10 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600">
                 <img src="https://i.postimg.cc/mZwvPzBh/Whats-App-Image-2025-05-29-at-10-04-03-5e28b994.jpg" alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent mx-0 px-[10px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent mx-0 px-0 my-[20px]"></div>
               </div>
               
               {/* Circular Avatar - Positioned as floating element */}
