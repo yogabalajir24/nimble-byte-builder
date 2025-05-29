@@ -71,14 +71,23 @@ const Hero = () => {
           {/* Right side - Professional Photo & Tech Graphics */}
           <div className="flex justify-center lg:justify-end animate-fade-in">
             <div className="relative">
-              {/* Professional Photo */}
+              {/* Rectangular Photo */}
               <div className="relative z-10 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600">
                 <img 
-                  src="/lovable-uploads/4ae8b0f2-c0c7-4c32-8a0c-b0c14e57be57.png" 
+                  src="https://i.postimg.cc/mZwvPzBh/Whats-App-Image-2025-05-29-at-10-04-03-5e28b994.jpg" 
                   alt="Yogabalaji R - Fullstack Developer"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+              </div>
+              
+              {/* Circular Avatar - Positioned as floating element */}
+              <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full overflow-hidden shadow-xl border-4 border-blue-400 z-20 transform hover:scale-110 transition-all duration-300">
+                <img 
+                  src="https://i.postimg.cc/DypRc9WT/Whats-App-Image-2025-05-29-at-10-04-50-a7328c4d.jpg" 
+                  alt="Yogabalaji R - Avatar"
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Floating tech icons */}
