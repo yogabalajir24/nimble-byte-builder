@@ -60,8 +60,14 @@ const About = () => {
           </div>
           
           <div className="flex justify-center">
-            <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center shadow-2xl">
-              <span className="text-8xl font-bold text-white">YR</span>
+            <div className="w-80 h-80 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-600 p-1 shadow-2xl">
+              <div className="w-full h-full rounded-full overflow-hidden bg-gray-800">
+                <img 
+                  src="https://i.postimg.cc/DypRc9WT/Whats-App-Image-2025-05-29-at-10-04-50-a7328c4d.jpg"
+                  alt="Yogabalaji R - Fullstack Developer"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </div>
