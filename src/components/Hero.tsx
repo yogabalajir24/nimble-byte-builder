@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Code2, Sparkles, Terminal, Database, Globe } from "lucide-react";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -8,45 +8,90 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="animate-fade-in">
-          {/* Profile Picture Placeholder */}
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
-            <span className="text-4xl font-bold text-white">YR</span>
+    <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Content */}
+          <div className="text-left lg:text-left animate-fade-in">
+            <div className="flex items-center gap-2 mb-6">
+              <Sparkles className="h-6 w-6 text-blue-400 animate-bounce" />
+              <span className="text-blue-400 font-medium">Welcome to my portfolio</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-white">Yogabalaji</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 animate-pulse">
+                R
+              </span>
+            </h1>
+            
+            <div className="mb-8">
+              <p className="text-xl md:text-2xl text-gray-300 mb-4 font-light">
+                Fullstack Developer
+              </p>
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm border border-blue-500/30">Java</span>
+                <span className="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm border border-green-500/30">Python</span>
+                <span className="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm border border-purple-500/30">Web Development</span>
+              </div>
+            </div>
+            
+            <p className="text-lg text-gray-400 mb-8 max-w-xl leading-relaxed">
+              Passionate about crafting innovative digital solutions and enhancing user experiences through cutting-edge technology
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                onClick={scrollToAbout}
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+              >
+                <Code2 className="mr-2 h-5 w-5" />
+                Explore My Work
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 px-8 py-3 transform hover:scale-105 transition-all duration-300"
+                onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                <Terminal className="mr-2 h-5 w-5" />
+                View Projects
+              </Button>
+            </div>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-white">Yogabalaji</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-              R
-            </span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Fullstack Developer | Java | Python | Web Development
-          </p>
-          
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-            Passionate about crafting innovative digital solutions and enhancing user experiences through technology
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              onClick={scrollToAbout}
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
-            >
-              Learn More About Me
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 px-8 py-3"
-              onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              View My Work
-            </Button>
+
+          {/* Right side - Professional Photo & Tech Graphics */}
+          <div className="flex justify-center lg:justify-end animate-fade-in">
+            <div className="relative">
+              {/* Professional Photo */}
+              <div className="relative z-10 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600">
+                <img 
+                  src="/lovable-uploads/4ae8b0f2-c0c7-4c32-8a0c-b0c14e57be57.png" 
+                  alt="Yogabalaji R - Fullstack Developer"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+              </div>
+              
+              {/* Floating tech icons */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg animate-bounce">
+                <Database className="h-8 w-8 text-white" />
+              </div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg animate-bounce delay-300">
+                <Globe className="h-8 w-8 text-white" />
+              </div>
+              <div className="absolute top-1/2 -right-8 w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg animate-bounce delay-500">
+                <Code2 className="h-6 w-6 text-white" />
+              </div>
+            </div>
           </div>
         </div>
         
