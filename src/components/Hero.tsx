@@ -1,14 +1,11 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Code2, Sparkles, Terminal, Database, Globe, Download } from "lucide-react";
-
 const Hero = () => {
   const scrollToAbout = () => {
     document.querySelector("#about")?.scrollIntoView({
       behavior: "smooth"
     });
   };
-
   const downloadResume = () => {
     // Convert Google Drive view link to direct download link
     const resumeUrl = "https://drive.google.com/uc?export=download&id=156ukUtn1C9E7HRB1I_3jnfUyS3Xm4bnY";
@@ -19,9 +16,7 @@ const Hero = () => {
     link.click();
     document.body.removeChild(link);
   };
-
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+  return <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
       {/* Enhanced 3D animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -35,8 +30,8 @@ const Hero = () => {
         
         {/* Floating geometric elements */}
         <div className="absolute top-1/4 right-1/4 w-20 h-20 border-2 border-blue-400/30 transform rotate-45 animate-spin" style={{
-          animationDuration: '15s'
-        }}></div>
+        animationDuration: '15s'
+      }}></div>
         <div className="absolute bottom-1/3 left-1/3 w-12 h-12 border-2 border-purple-400/40 rounded-full animate-ping"></div>
         <div className="absolute top-2/3 right-1/5 w-8 h-8 bg-gradient-to-r from-cyan-400/30 to-blue-600/30 transform rotate-12 animate-bounce delay-300"></div>
       </div>
@@ -71,8 +66,8 @@ const Hero = () => {
                 Explore My Work
               </Button>
               <Button variant="outline" size="lg" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 px-8 py-3 transform hover:scale-105 transition-all duration-300" onClick={() => document.querySelector("#projects")?.scrollIntoView({
-                behavior: "smooth"
-              })}>
+              behavior: "smooth"
+            })}>
                 <Terminal className="mr-2 h-5 w-5" />
                 View Projects
               </Button>
@@ -89,13 +84,9 @@ const Hero = () => {
               {/* Circular Photo with proper sizing */}
               <div className="relative z-10 w-80 h-80 rounded-full overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600 bg-gradient-to-br from-blue-400 to-purple-600 p-1">
                 <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
-                  <img 
-                    alt="Yogabalaji R - Fullstack Developer" 
-                    src="/lovable-uploads/b3d8f13e-81eb-4fad-ac76-49a8066afe9e.png" 
-                    className="w-full h-full object-cover object-center scale-110" 
-                  />
+                  <img alt="Yogabalaji R - Fullstack Developer" src="/lovable-uploads/b3d8f13e-81eb-4fad-ac76-49a8066afe9e.png" className="w-full h-full object-cover object-center scale-110" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent rounded-sm"></div>
               </div>
               
               {/* Floating tech icons */}
@@ -116,8 +107,6 @@ const Hero = () => {
           <ArrowDown className="h-6 w-6 text-gray-400" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
