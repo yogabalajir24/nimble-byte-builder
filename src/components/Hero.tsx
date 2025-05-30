@@ -84,7 +84,7 @@ const Hero = () => {
               {/* Circular Photo with proper sizing */}
               <div className="relative z-10 w-80 h-80 rounded-full overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600 bg-gradient-to-br from-blue-400 to-purple-600 p-1">
                 <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
-                  <img alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-center scale-110 object-fill" src="/lovable-uploads/cac5cf8d-1b3e-4a08-afdd-789fc19f34e4.jpg" />
+                  <img alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-center scale-110 object-fill" src="/lovable-uploads/f62e106d-23fd-4451-94bb-03ca69a31d4a.jpg" />
                 </div>
                 
               </div>
