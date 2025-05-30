@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Code2, Sparkles, Terminal, Database, Globe } from "lucide-react";
+import { ArrowDown, Code2, Sparkles, Terminal, Database, Globe, Download } from "lucide-react";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -9,13 +9,34 @@ const Hero = () => {
     });
   };
 
+  const downloadResume = () => {
+    // Convert Google Drive view link to direct download link
+    const resumeUrl = "https://drive.google.com/uc?export=download&id=156ukUtn1C9E7HRB1I_3jnfUyS3Xm4bnY";
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Yogabalaji_Ramesh_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Enhanced 3D animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-br from-cyan-500/10 to-teal-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        
+        {/* Additional 3D geometric shapes */}
+        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-3xl transform rotate-45 animate-float"></div>
+        <div className="absolute bottom-32 left-20 w-24 h-24 bg-gradient-to-br from-green-400/25 to-blue-600/25 rounded-2xl transform -rotate-12 animate-bounce"></div>
+        <div className="absolute top-1/3 left-10 w-16 h-16 bg-gradient-to-br from-yellow-400/20 to-orange-600/20 rounded-full animate-pulse delay-700"></div>
+        
+        {/* Floating geometric elements */}
+        <div className="absolute top-1/4 right-1/4 w-20 h-20 border-2 border-blue-400/30 transform rotate-45 animate-spin" style={{animationDuration: '15s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-12 h-12 border-2 border-purple-400/40 rounded-full animate-ping"></div>
+        <div className="absolute top-2/3 right-1/5 w-8 h-8 bg-gradient-to-r from-cyan-400/30 to-blue-600/30 transform rotate-12 animate-bounce delay-300"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -58,21 +79,24 @@ const Hero = () => {
                 <Terminal className="mr-2 h-5 w-5" />
                 View Projects
               </Button>
+              <Button 
+                onClick={downloadResume}
+                size="lg" 
+                className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-3 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Resume
+              </Button>
             </div>
           </div>
 
           {/* Right side - Professional Photo & Tech Graphics */}
           <div className="flex justify-center lg:justify-end animate-fade-in">
             <div className="relative">
-              {/* Rectangular Photo */}
+              {/* Rectangular Photo Only */}
               <div className="relative z-10 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600">
-                <img src="https://i.postimg.cc/PJvccyJZ/Whats-App-Image-2025-05-29-at-10-04-03-5e28b9941.jpg" alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-cover" />
+                <img src="https://i.postimg.cc/mZwvPzBh/Whats-App-Image-2025-05-29-at-10-04-03-5e28b994.jpg" alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent mx-0 px-0 my-[20px]"></div>
-              </div>
-              
-              {/* Circular Avatar - Positioned as floating element */}
-              <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full overflow-hidden border-4 border-blue-400 shadow-xl bg-gray-800 animate-bounce delay-700">
-                <img src="https://i.postimg.cc/DypRc9WT/Whats-App-Image-2025-05-29-at-10-04-50-a7328c4d.jpg" alt="Yogabalaji R" className="w-full h-full object-cover" />
               </div>
               
               {/* Floating tech icons */}
