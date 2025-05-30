@@ -1,9 +1,33 @@
 
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Linkedin, Github, Code } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import { Mail, Phone, Linkedin, Github, Code, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
 
 const Contact = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+  
+  const form = useForm<ContactFormData>({
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6" />,
@@ -42,6 +66,42 @@ const Contact = () => {
     }
   ];
 
+  const onSubmit = async (data: ContactFormData) => {
+    setIsLoading(true);
+    
+    try {
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+        to_name: "Yogabalaji Ramesh",
+      };
+
+      await emailjs.send(
+        "service_gydezog", // service ID
+        "template_gi4iyh8", // template ID
+        templateParams,
+        "5D1bR83hfcxEIcNpJ" // public key
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,30 +113,127 @@ const Contact = () => {
             Feel free to reach out if you'd like to connect!
           </p>
         </div>
-        
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {contactInfo.map((contact, index) => (
-            <Card key={index} className="bg-gray-900 border-gray-700 hover:border-blue-400 transition-all duration-300 hover:scale-105">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-4">
-                  <div className={`${contact.color}`}>
-                    {contact.icon}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-400">{contact.label}</p>
-                    <a
-                      href={contact.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-blue-400 transition-colors duration-200 font-medium"
+
+        <div className="grid lg:grid-cols-2 gap-12 mb-12">
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
+            <div className="space-y-6">
+              {contactInfo.map((contact, index) => (
+                <Card key={index} className="bg-gray-900 border-gray-700 hover:border-blue-400 transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-4">
+                      <div className={`${contact.color}`}>
+                        {contact.icon}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm text-gray-400">{contact.label}</p>
+                        <a
+                          href={contact.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-blue-400 transition-colors duration-200 font-medium"
+                        >
+                          {contact.value}
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <Card className="bg-gray-900 border-gray-700">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-white mb-6">Send me a message</h3>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      rules={{ required: "Name is required" }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-300">Name</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Your name"
+                              className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      rules={{ 
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Invalid email address"
+                        }
+                      }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-300">Email</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="your.email@example.com"
+                              className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      rules={{ required: "Message is required" }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-300">Message</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Write your message here..."
+                              className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 min-h-[120px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <Button
+                      type="submit"
+                      disabled={isLoading}
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3"
                     >
-                      {contact.value}
-                    </a>
-                  </div>
-                </div>
+                      {isLoading ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5 mr-2" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </Form>
               </CardContent>
             </Card>
-          ))}
+          </div>
         </div>
         
         <div className="text-center">

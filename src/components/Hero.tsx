@@ -1,12 +1,16 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Code2, Sparkles, Terminal, Database, Globe } from "lucide-react";
+
 const Hero = () => {
   const scrollToAbout = () => {
     document.querySelector("#about")?.scrollIntoView({
       behavior: "smooth"
     });
   };
-  return <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -62,12 +66,14 @@ const Hero = () => {
             <div className="relative">
               {/* Rectangular Photo */}
               <div className="relative z-10 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600">
-                <img src="https://i.postimg.cc/mZwvPzBh/Whats-App-Image-2025-05-29-at-10-04-03-5e28b994.jpg" alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-cover" />
+                <img src="https://i.postimg.cc/PJvccyJZ/Whats-App-Image-2025-05-29-at-10-04-03-5e28b9941.jpg" alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent mx-0 px-0 my-[20px]"></div>
               </div>
               
               {/* Circular Avatar - Positioned as floating element */}
-              
+              <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full overflow-hidden border-4 border-blue-400 shadow-xl bg-gray-800 animate-bounce delay-700">
+                <img src="https://i.postimg.cc/DypRc9WT/Whats-App-Image-2025-05-29-at-10-04-50-a7328c4d.jpg" alt="Yogabalaji R" className="w-full h-full object-cover" />
+              </div>
               
               {/* Floating tech icons */}
               <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg animate-bounce">
@@ -87,6 +93,8 @@ const Hero = () => {
           <ArrowDown className="h-6 w-6 text-gray-400" />
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
