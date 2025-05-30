@@ -46,7 +46,7 @@ const Hero = () => {
             </h1>
             
             <div className="mb-8">
-              <p className="text-xl md:text-2xl text-gray-300 mb-4 font-light">
+              <p className="text-xl md:text-2xl text-gray-300 mb-4 font-semibold">
                 Fullstack Developer
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
