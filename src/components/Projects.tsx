@@ -25,6 +25,10 @@ const Projects = () => {
     }
   ];
 
+  const handleGitHubRedirect = () => {
+    window.open("https://github.com/yogabalajir24", "_blank");
+  };
+
   return (
     <section id="projects" className="py-20 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,11 +63,21 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900">
+                  <Button
+                    onClick={handleGitHubRedirect}
+                    variant="outline"
+                    size="sm"
+                    className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900"
+                  >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
                   </Button>
-                  <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-600 hover:text-white">
+                  <Button
+                    onClick={handleGitHubRedirect}
+                    variant="outline"
+                    size="sm"
+                    className="border-gray-600 text-gray-300 hover:bg-gray-600 hover:text-white"
+                  >
                     <Github className="h-4 w-4 mr-2" />
                     Code
                   </Button>

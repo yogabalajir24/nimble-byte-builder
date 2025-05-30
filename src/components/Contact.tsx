@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useForm } from "react-hook-form";
-import { Mail, Phone, Linkedin, Github, Code, Send, X } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Code, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 
@@ -73,13 +73,11 @@ const Contact = () => {
     setIsLoading(true);
     
     try {
+      // Updated template parameters to match your EmailJS template
       const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        message: data.message,
-        to_name: "Yogabalaji Ramesh",
-        reply_to: data.email,
-        to_email: "yogabalajiramesh@gmail.com"
+        name: data.name,
+        email: data.email,
+        message: data.message
       };
 
       await emailjs.send(
@@ -141,11 +139,11 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
-          <div>
+          <div className="space-y-6">
             <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((contact, index) => (
                 <Card key={index} className="bg-gray-900/50 backdrop-blur-sm border-gray-700 hover:border-blue-400 transition-all duration-300 hover:scale-105">
                   <CardContent className="p-6">
@@ -170,12 +168,12 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div>
-            <Card className="bg-gray-900/50 backdrop-blur-sm border-gray-700">
-              <CardContent className="p-8">
+          <div className="h-full">
+            <Card className="bg-gray-900/50 backdrop-blur-sm border-gray-700 h-full">
+              <CardContent className="p-8 h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-white mb-6">Send me a message</h3>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1 flex flex-col">
                     <FormField
                       control={form.control}
                       name="name"
@@ -226,12 +224,12 @@ const Contact = () => {
                       name="message"
                       rules={{ required: "Message is required" }}
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="flex-1 flex flex-col">
                           <FormLabel className="text-gray-300">Message</FormLabel>
                           <FormControl>
                             <Textarea
                               placeholder="Write your message here..."
-                              className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 min-h-[120px]"
+                              className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 min-h-[120px] flex-1"
                               {...field}
                             />
                           </FormControl>
@@ -243,7 +241,7 @@ const Contact = () => {
                     <Button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3"
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 mt-auto"
                     >
                       {isLoading ? (
                         "Sending..."
@@ -265,9 +263,7 @@ const Contact = () => {
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogContent className="bg-gray-900 border-gray-700 max-w-md">
             <DialogHeader>
-              <div className="flex items-center justify-between">
-                <DialogTitle className="text-white">Send me a message</DialogTitle>
-              </div>
+              <DialogTitle className="text-white">Send me a message</DialogTitle>
             </DialogHeader>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

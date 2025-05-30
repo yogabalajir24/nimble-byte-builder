@@ -22,13 +22,6 @@ const Skills = () => {
       color: "from-blue-500 to-purple-500"
     },
     {
-      category: "Mobile Development",
-      skills: [
-        { name: "Flutter", level: 80 }
-      ],
-      color: "from-cyan-500 to-blue-500"
-    },
-    {
       category: "Other Skills",
       skills: [
         { name: "Fullstack Development", level: 87 },
@@ -47,7 +40,7 @@ const Skills = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto"></div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
             <div key={index} className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/10">
               <h3 className="text-xl font-bold text-white mb-6 flex items-center">
