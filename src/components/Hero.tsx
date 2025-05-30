@@ -42,7 +42,7 @@ const Hero = () => {
           <div className="text-left lg:text-left animate-fade-in">
             <div className="flex items-center gap-6 mb-6">
               <Sparkles className="h-6 w-6 text-blue-400 animate-bounce" />
-              <span className="text-blue-400 font-medium">Welcome to my portfolio</span>
+              <span className="font-medium text-[#e2e2ee]">Welcome to My Portfolio</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
