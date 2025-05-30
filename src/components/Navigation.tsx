@@ -36,7 +36,9 @@ const Navigation = () => {
     <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="font-bold text-xl text-blue-400">Yogabalaji Ramesh</div>
+          <div className="font-bold text-xl bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent hover:from-cyan-400 hover:via-blue-500 hover:to-purple-400 transition-all duration-300 cursor-pointer">
+            Yogabalaji Ramesh
+          </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
