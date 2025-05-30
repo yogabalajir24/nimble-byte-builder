@@ -86,7 +86,7 @@ const Hero = () => {
                 <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
                   <img alt="Yogabalaji R - Fullstack Developer" src="/lovable-uploads/b3d8f13e-81eb-4fad-ac76-49a8066afe9e.png" className="w-full h-full object-cover object-center scale-110" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent rounded-sm"></div>
+                
               </div>
               
               {/* Floating tech icons */}
