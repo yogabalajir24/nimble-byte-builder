@@ -42,7 +42,7 @@ const Hero = () => {
           <div className="text-left lg:text-left animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-neutral-100">
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-neutral-100">Yogabalaji</span>{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-400 bg-clip-text text-transparent">Ramesh</span>
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-400 bg-clip-text text-neutral-100">Ramesh</span>
             </h1>
             
             <div className="mb-8">
