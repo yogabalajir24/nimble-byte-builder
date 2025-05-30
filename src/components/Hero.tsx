@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Code2, Sparkles, Terminal, Database, Globe, Download } from "lucide-react";
 const Hero = () => {
@@ -44,8 +43,8 @@ const Hero = () => {
             
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent animate-pulse">Yogabalaji</span>{" "}
-              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 bg-clip-text text-transparent animate-pulse delay-300">Ramesh</span>
+              <span className="text-slate-50">Yogabalaji</span>{" "}
+              <span className="text-white">Ramesh</span>
             </h1>
             
             <div className="mb-8">
@@ -86,7 +85,7 @@ const Hero = () => {
             <div className="relative">
               {/* Rectangular Photo Only */}
               <div className="relative z-10 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600">
-                <img alt="Yogabalaji R - Fullstack Developer" src="https://i.postimg.cc/3xrfH8VL/resized-profile-400x500.jpg" className="w-full h-full object-cover" />
+                <img alt="Yogabalaji R - Fullstack Developer" src="/lovable-uploads/2d77b895-d2d3-4339-8a81-8e7c5df67074.jpg" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent mx-0 px-0 my-0"></div>
               </div>
               
