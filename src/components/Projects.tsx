@@ -52,7 +52,7 @@ const Projects = () => {
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
                   </Button>
-                  <Button onClick={handleGitHubRedirect} variant="outline" size="sm" className="border-gray-600 text-gray-950 bg-slate-50">
+                  <Button onClick={handleGitHubRedirect} variant="outline" size="sm" className="border-gray-600 bg-slate-600 hover:bg-slate-500 text-gray-50">
                     <Github className="h-4 w-4 mr-2" />
                     Code
                   </Button>
