@@ -88,8 +88,8 @@ const Hero = () => {
             <div className="relative">
               {/* Rectangular Photo Only */}
               <div className="relative z-10 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-gradient-to-br from-blue-400 to-purple-600">
-                <img alt="Yogabalaji R - Fullstack Developer" className="w-full h-full object-fill" src="/lovable-uploads/2d77b895-d2d3-4339-8a81-8e7c5df67074.jpg" />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent mx-0 px-0 my-[20px]"></div>
+                <img alt="Yogabalaji R - Fullstack Developer" src="/lovable-uploads/2d77b895-d2d3-4339-8a81-8e7c5df67074.jpg" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent mx-0 px-0 my-0"></div>
               </div>
               
               {/* Floating tech icons */}
